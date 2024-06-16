@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:59:33 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/06/15 13:04:10 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:19:40 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,24 @@
 
 int	ft_printf(const char *format, ...)
 {
-	variables	v;
+	t_variables	v;
 	va_list		arg;
-	convert_t	f_list[] = {{"c", print_char},
-							{"s", print_string},
-							{"d", print_int},
-							{"i", print_int},
-							{"u", print_unsigned},
-							// {"p", print_pointer},		// TODO
-							{"x", print_low_hex},
-							{"X", print_upp_hex},		// TODO
-							{NULL, NULL}};
+	t_convert	f_list[9];
 
+	f_list[0] = (t_convert){"c", print_char};
+	f_list[1] = (t_convert){"s", print_string};
+	f_list[2] = (t_convert){"d", print_int};
+	f_list[3] = (t_convert){"i", print_int};
+	f_list[4] = (t_convert){"u", print_unsigned};
+	f_list[5] = (t_convert){"p", print_pointer};
+	f_list[6] = (t_convert){"x", print_low_hex};
+	f_list[7] = (t_convert){"X", print_upp_hex};
+	f_list[8] = (t_convert){NULL, NULL};
 	v.i = 0;
 	if (format == NULL)
 		return (-1);
 	va_start(arg, format);
-	v.i = character_count(format, arg, f_list); // TODO
+	v.i = character_count(format, arg, f_list);
 	va_end(arg);
 	return (v.i);
 }
-// int main(void)
-// {
-// 	// char *s = "6789";
-
-// 	// printf("%d\n", ft_printf("%d",NULL));
-// 	// ft_printf("\n%u\n",1234);
-// 	// printf("%d\n", printf("%d",));
-// }

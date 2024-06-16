@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_string.c                                     :+:      :+:    :+:   */
+/*   spec_functions_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:25:02 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/06/15 11:26:23 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/06/16 19:35:08 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,25 @@
 #include "libft/libft.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int	print_string(va_list arg)
 {
-	variables	v;
+	t_variables	v;
 
 	v.i = 0;
 	v.chartotal = 0;
-	v.a = va_arg(arg, const char *);
-	while (v.a[v.i])
-	{
-		ft_putchar_fd(v.a[v.i], 1);
-		v.i++;
-		v.chartotal++;
-	}
+	v.result = va_arg(arg, char *);
+	if (v.result == NULL)
+		return (write(1, "(null)", 6));
+	v.chartotal = ft_strlen(v.result);
+	ft_putstr_fd(v.result, 1);
 	return (v.chartotal);
 }
 
 int	print_char(va_list arg)
 {
-	variables	v;
+	t_variables	v;
 
 	v.b = va_arg(arg, int);
 	ft_putchar_fd(v.b, 1);
@@ -42,36 +41,26 @@ int	print_char(va_list arg)
 
 int	print_int(va_list arg)
 {
-	variables	v;
+	t_variables	v;
+	char		*str;
 
-	v.chartotal = 0;
 	v.b = va_arg(arg, int);
-	ft_putnbr_fd(v.b, 1);
-	if (v.b < 0)
-	{
-		v.b = -v.b;
-		v.chartotal++;
-	}
-	while (v.b > 0)
-	{
-		v.b = v.b / 10;
-		v.chartotal++;
-	}
+	str = ft_itoa(v.b);
+	v.chartotal = ft_strlen(str);
+	ft_putstr_fd(str, 1);
+	free(str);
 	return (v.chartotal);
 }
 
 int	print_unsigned(va_list arg)
 {
-	variables	v;
+	t_variables	v;
+	char		*str;
 
-	v.chartotal = 0;
 	v.uni = va_arg(arg, unsigned int);
-	v.uni = (unsigned int)((int)v.uni);
-	ft_putunbr_fd(v.uni, 1);
-	while (v.uni > 0)
-	{
-		v.uni = v.uni / 10;
-		v.chartotal++;
-	}
+	str = ft_utoa(v.uni);
+	v.chartotal = ft_strlen(str);
+	ft_putstr_fd(str, 1);
+	free(str);
 	return (v.chartotal);
 }

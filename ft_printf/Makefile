@@ -5,19 +5,19 @@ SOURCES	= \
 	spec_functions_2.c \
 	helper_functions.c \
 
-
 OBJECTS		=		$(SOURCES:.c=.o)
-HEADER		=		includes
 LIBFT		=		libft
 FLAGS		=		-Wall -Wextra -Werror -g
 NAME		=		libftprintf.a
 RM			=		rm -f
-CC			=		gcc
-AR			=		ar rc
+CC			=		cc
+AR			=		ar rcs
 
 all:	${NAME}
 
 bonus: all
+
+allc: all clean
 
 ${NAME}: ${OBJECTS}
 	make -C $(LIBFT)
