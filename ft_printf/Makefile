@@ -1,6 +1,6 @@
 SOURCES	= \
 	ft_printf.c \
-	main.c \
+	character_count.c \
 	spec_functions_1.c \
 	spec_functions_2.c \
 	helper_functions.c \
