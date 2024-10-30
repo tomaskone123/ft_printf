@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 16:02:13 by tomas             #+#    #+#             */
-/*   Updated: 2024/06/14 14:12:36 by tkonecny         ###   ########.fr       */
+/*   Created: 2024/04/10 17:23:45 by tomas             #+#    #+#             */
+/*   Updated: 2024/06/18 17:20:28 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <aio.h>
+#include <errno.h>
+#include <limits.h>
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
-void	ft_putchar_fd(char c, int fd)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	ssize_t	result;
+	void	*ptr;
 
-	result = write(fd, &c, 1);
+	if (nmemb != 0 && size > __SIZE_MAX__ / nmemb)
+		return (NULL);
+	if (nmemb == 0 || size == 0)
+	{
+		nmemb = 1;
+		size = 1;
+	}
+	ptr = malloc(nmemb * size);
+	if (ptr)
+		ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }

@@ -35,7 +35,6 @@ SOURCES = \
 	ft_substr.c \
 	ft_calloc.c \
 	ft_split.c \
-	ft_putunbr_fd.c \
 
 
 

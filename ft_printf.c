@@ -6,7 +6,7 @@
 /*   By: tkonecny <tkonecny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 15:59:33 by tkonecny          #+#    #+#             */
-/*   Updated: 2024/06/17 15:38:48 by tkonecny         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:19:11 by tkonecny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,12 @@ int	ft_printf(const char *format, ...)
 // 	int				x = -1234;
 // 	int				X = -1234;
 
-// 	ft_printf(" aa%caa aa%saa aa%paa aa%daa aa%iaa aa%uaa aa%xaa aa%Xaa aa%%aa\n", c, s, &s, d, i, u, x, X);
-// 	printf(" aa%caa aa%saa aa%paa aa%daa aa%iaa aa%uaa aa%xaa aa%Xaa aa%%aa\n", c, s, &s, d, i, u, x, X);
+// 	ft_printf(" aa%caa aa%saa aa%paa aa%daa aa%iaa aa%uaa aa%xaa aa%Xaa
+//  aa%%aa\n",
+// c, s, &s, d, i, u, x, X);
+// 	printf(" aa%caa aa%saa aa%paa aa%daa aa%iaa aa%uaa aa%xaa aa%Xaa
+// aa%%aa\n",
+// c, s, &s, d, i, u, x, X);
 // 	ft_printf("%%%%%u\n", u);
 // 	printf("%%%%%u\n", u);
 // 	ft_printf("%%%%%s\n", s);
@@ -92,16 +96,20 @@ int	ft_printf(const char *format, ...)
 //     printf("printf: %d\n", printf("Unsigned: %u\n", 4294967295U));
 
 //     // Test case for %x
-//     printf("ft_printf: %d\n", ft_printf("Hexadecimal (lowercase): %x\n", 0xabcdef));
-//     printf("printf: %d\n", printf("Hexadecimal (lowercase): %x\n", 0xabcdef));
+//     printf("ft_printf: %d\n", ft_printf("Hexadecimal (lowercase): %x\n",
+// 0xabcdef));
+//     printf("printf: %d\n", printf("Hexadecimal (lowercase): %x\n",
+// 0xabcdef));
 
 //     // Test case for %X
-//     printf("ft_printf: %d\n", ft_printf("Hexadecimal (uppercase): %X\n", 0xABCDEF));
-//     printf("printf: %d\n", printf("Hexadecimal (uppercase): %X\n", 0xABCDEF));
+//     printf("ft_printf: %d\n", ft_printf("Hexadecimal (uppercase): %X\n",
+// 0xABCDEF));
+//     printf("printf: %d\n", printf("Hexadecimal (uppercase): %X\n",
+// 0xABCDEF));
 
 //     // Test case for %%
 //     printf("ft_printf: %d\n", ft_printf("Percent sign: %%\n"));
 //     printf("printf: %d\n", printf("Percent sign: %%\n"));
 
-//     return 0;
+//     return (0);
 // }

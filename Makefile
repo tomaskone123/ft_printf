@@ -15,8 +15,6 @@ AR			=		ar rcs
 
 all:	${NAME}
 
-bonus: all
-
 allc: all clean
 
 ${NAME}: ${OBJECTS}
