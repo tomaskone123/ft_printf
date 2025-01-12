@@ -64,12 +64,4 @@ This will generate the `libftprintf.a` library file. You can link it to your pro
 gcc -Wall -Wextra -Werror main.c libftprintf.a -o program
 ```
 
-## Testing
-Extensive testing was performed to ensure correctness and compatibility with the standard `printf`. Custom test cases and comparison with the standard `printf` output were used.
-
-## License
-This project is part of the 42 Network curriculum and adheres to its academic integrity policies. Use of this code is intended for educational purposes only.
-
-## Credits
-Developed by [Your Name]. Inspired by the standard C `printf` function.
 
