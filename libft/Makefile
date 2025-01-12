@@ -35,6 +35,9 @@ SOURCES = \
 	ft_substr.c \
 	ft_calloc.c \
 	ft_split.c \
+	get_next_line.c \
+	get_next_line_utils.c \
+
 
 
 
